@@ -1,0 +1,24 @@
+# Dependencies
+node_modules/
+
+# Build output (adjust if using a different outDir)
+dist/
+build/
+
+# TypeScript incremental build
+*.tsbuildinfo
+
+# Environment variables and secrets
+.env
+.env.local
+*.secrets
+
+# IDE and OS files
+.vscode/
+.idea/
+.DS_Store
+
+# Optional: Ignore all .js files except specific config files like jest.config.js
+*.js
+!jest.config.js
+!eslint.config.js   
