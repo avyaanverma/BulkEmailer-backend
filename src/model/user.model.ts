@@ -1,4 +1,4 @@
-import { Schema, model, Document } from "mongoose";
+import { Schema, model } from "mongoose";
 import { type IUser, UserRole } from "../interface/user.interface.js";
 import { config } from "../config/config.js";
 import jwt from "jsonwebtoken";
