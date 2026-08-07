@@ -78,6 +78,6 @@ userSchema.methods.compareRefreshToken = function (this: IUser, token: string) {
   if (!this.refreshToken) {
     throw new Error("Refresh token is required");
   }
-  return bcrypt.compareSync(this.refreshToken, token);
+  return bcrypt.compareSync(token, this.refreshToken);
 };
 export default model<IUser>("User", userSchema);
