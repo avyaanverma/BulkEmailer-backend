@@ -15,8 +15,8 @@ const envSchema = z.object({
   google_client_id: z.string(),
   google_client_secret: z.string(),
   google_redirect_url: z.string().url(),
-  access_token_expires: z.string(),
-  refresh_token_expires: z.string(),
+  access_token_expires: z.coerce.number(),
+  refresh_token_expires: z.coerce.number(),
   logger_level: z.enum(["debug", "info", "warn", "error"]).default("debug"),
 });
 

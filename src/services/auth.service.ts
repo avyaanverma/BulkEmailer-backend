@@ -1,8 +1,7 @@
 import { google } from "googleapis";
-
 import { config } from "../config/config.js";
 import type { IUser } from "../interface/user.interface.js";
-
+import type { Response } from "express";
 import userDao from "../dao/user.dao.js";
 
 import ResponseHandler from "../utils/response.handler.js";
@@ -26,14 +25,14 @@ class AuthService {
   /**
    * Google Login
    */
-  async googleLogin(payload: { token: string }) {
-    const ticket = await this.verifyGoogleToken(payload.token);
+  async googleLogin(token: string, res: Response) {
+    const ticket = await this.verifyGoogleToken(token);
 
     const profile = this.extractGoogleProfile(ticket);
 
     const user = await this.socialLogin(profile);
 
-    return ResponseHandler.success(user, "Login successful");
+    return user;
   }
 
   /**
